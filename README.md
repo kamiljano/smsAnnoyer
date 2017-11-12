@@ -24,7 +24,7 @@ To run the lambda locally, run the following command:
 # AWS Deployment
 The lambda uses the serverless framework that makes it super easy to deploy it into the CloudFormation stack.
 
-# Single repetitive message
+## Single repetitive message
 It is possible to specify one single repetitive message that will be sent every few minutes
 
 You can do so by running the following command:
@@ -35,7 +35,7 @@ You can do so by running the following command:
         
         ./node_modules/serverless/bin/serverless deploy -v --region "eu-west-1" --recipient "358406781234" --message "Hello!"
         
-# Multiple looped messages
+## Multiple looped messages
 It is possible to specify multiple messages that will be sent in a loop
 
 You can do so by running the following command:
