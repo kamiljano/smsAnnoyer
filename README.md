@@ -44,7 +44,7 @@ You can do so by running the following command:
         
         Pre-filled example:
         
-        ./node_modules/serverless/bin/serverless deploy -v --region "eu-west-1" --recipient "358406781234" --message "./messages.json"
+        ./node_modules/serverless/bin/serverless deploy -v --region "eu-west-1" --recipient "358406781234" --messagesInput "./messages.json"
 
 # Command parameter description
 * `region` - AWS region. To save money, you should probably choose one that is the nearest to your recipient
