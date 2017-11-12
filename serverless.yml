@@ -4,14 +4,17 @@ provider:
   name: aws
   runtime: nodejs6.10
   region: ${opt:region, 'eu-west-1'}
+  versionFunctions: false
   iamRoleStatements:
     - Effect: "Allow"
       Action: "SNS:Publish"
-      Resource: arn:aws:sns:${self:provider.region}:*:*
+      Resource:
+        - "*"
 
 functions:
   handle:
     handler: handler.handle
+    timeout: 10
     events:
       - schedule:
           rate: rate(${opt:minutes, '15'} minutes)
