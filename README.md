@@ -33,7 +33,7 @@ You can do so by running the following command:
         
         Pre-filled example:
         
-        ./node_modules/serverless/bin/serverless deploy -v --region "eu-west-1" --recipient "+358406781234" --message "Hello!"
+        ./node_modules/serverless/bin/serverless deploy -v --region "eu-west-1" --recipient "358406781234" --message "Hello!"
         
 # Multiple looped messages
 It is possible to specify multiple messages that will be sent in a loop
