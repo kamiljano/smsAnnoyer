@@ -20,5 +20,6 @@ functions:
           rate: rate(${opt:minutes, '15'} minutes)
           input:
             region: ${self:provider.region}
-            recipient: ${opt:recipient}
+            recipient: "+${opt:recipient}"
             message: ${opt:message}
+            messagesInput: ${opt:messagesInput}
