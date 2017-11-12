@@ -1,0 +1,13 @@
+{
+  "name": "smsannoyer",
+  "description": "An AWS Lambda that sends a text message to a specified number every few minutes just to annoy them",
+  "version": "0.0.0",
+  "main": "handler.js",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "~2.114.0"
+  },
+  "devDependencies": {
+    "serverless": "~1.21.1"
+  }
+}

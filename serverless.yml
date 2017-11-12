@@ -1,0 +1,21 @@
+service: smsAnnoyer
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: ${opt:region, 'eu-west-1'}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action: "SNS:Publish"
+      Resource: arn:aws:sns:${self:provider.region}:*:*
+
+functions:
+  handle:
+    handler: handler.handle
+    events:
+      - schedule:
+          rate: rate(${opt:minutes, '15'} minutes)
+          input:
+            region: ${self:provider.region}
+            recipient: ${opt:recipient}
+            message: ${opt:message}
