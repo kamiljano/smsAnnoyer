@@ -2,7 +2,7 @@ service: smsAnnoyer
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs10.x
   region: ${opt:region, 'eu-west-1'}
   versionFunctions: false
   iamRoleStatements:
@@ -23,3 +23,6 @@ functions:
             recipient: "+${opt:recipient}"
             message: ${opt:message}
             messagesInput: ${opt:messagesInput}
+
+plugins:
+  - schedule-builder
