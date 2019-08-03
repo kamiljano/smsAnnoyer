@@ -1,8 +1,13 @@
 service: smsAnnoyer
 
+custom:
+  delay: ${opt:delay, '15'} 
+
 provider:
   name: aws
   runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  memorySize: 256
   region: ${opt:region, 'eu-west-1'}
   versionFunctions: false
   iamRoleStatements:
@@ -13,16 +18,13 @@ provider:
 
 functions:
   handle:
+    name: smsAnnoyer-${self:provider.stage}
+    description: "Sends an SMS to ${opt:recipient} every ${self:custom.delay} minutes"
     handler: handler.handle
     timeout: 10
+    environment:
+      MESSAGE: ${opt:message}
+      RECIPIENT: ${opt:recipient}
     events:
       - schedule:
-          rate: rate(${opt:minutes, '15'} minutes)
-          input:
-            region: ${self:provider.region}
-            recipient: "+${opt:recipient}"
-            message: ${opt:message}
-            messagesInput: ${opt:messagesInput}
-
-plugins:
-  - schedule-builder
+          rate: rate(${self:custom.delay} minutes)

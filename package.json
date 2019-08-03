@@ -3,11 +3,15 @@
   "description": "An AWS Lambda that sends a text message to a specified number every few minutes just to annoy them",
   "version": "0.0.0",
   "main": "handler.js",
-  "private": true,
+  "scripts": {
+    "deploy": "serverless deploy"
+  },
   "dependencies": {
     "aws-sdk": "~2.503.0"
   },
   "devDependencies": {
     "serverless": "~1.49.0"
-  }
+  },
+  "author": "Kamil Janowski - kgjanowski@gmail.com",
+  "license": "ISC"
 }

@@ -29,12 +29,16 @@ It is possible to specify one single repetitive message that will be sent every 
 
 You can do so by running the following command:
         
-        ./node_modules/serverless/bin/serverless deploy -v --region "<region>" --recipient "<recipient>" --message "<message>"
+        npm run deploy -v --region "<region>" --recipient "<recipient>" --message "<message>"
         
         Pre-filled example:
         
-        ./node_modules/serverless/bin/serverless deploy -v --region "eu-west-1" --recipient "358406781234" --message "Hello!"
-        
+        npm run deploy -- --region "eu-west-1" --recipient "+358406781234" --message "Hello!"
+
+### Optional parameters
+
+* `--delay` - the number of minutes to wait between messages. By default set to 15
+
 ## Multiple looped messages
 It is possible to specify multiple messages that will be sent in a loop
 
